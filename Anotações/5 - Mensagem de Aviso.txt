@@ -1,0 +1,27 @@
+1 - Os tipos de mensagens de aviso que temos na lib tkinter
+
+    Vamos usar o módulo messagebox e ter uma noção de como funciona
+    São extremamente importantes e bastante utéis de utilizar para criar regras e 
+    lógicas
+
+    Para isso vamos importar o módulo:
+
+        from tkinter import messagebox
+
+2 - TIPOS DE CAIXAS DE MENSAGENS 
+
+    Básicos
+
+    objeto.messagebox.showinfo() -> Informa o usuário
+    objeto.messagebox.showwarning() -> Alerta o usuário
+    objeto.messagebox.showerror() -> Apresenta uma mensagens de erro
+    
+    Os de baixos retornam valores boleanos
+
+    objeto.messagebox.askokcancel() -> O usuário pode cancelar ou continuar com a aplicação
+    ele retorna um True ou False como valor, podemos fazer operações boolean com elas
+
+    objeto.messagebox.askyesno() -> Podemos realizar a mesma coisa acima porém com sim ou
+    não
+
+    objeto.messagebox.askentrycancel() -> funciona como o askcancel() porém o inverso

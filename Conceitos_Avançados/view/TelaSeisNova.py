@@ -4,8 +4,10 @@ from tkinter import Button  # importando a class Button do pacote tkinter para c
 from tkinter import Label  # importando a classe Label do pacote tkinter para criação de Labels
 from tkinter import Entry  # importando a classe Entry do pacote tkinter para criação de inputs
 from tkinter import messagebox  # Importando messagebox para balões de aviso
+
 #importando awesometkinter para bordas arredondadas
 import awesometkinter as atk  # vai ser necessário renomear os frames que tem a class Frame
+import os
 
 class TelaSeisNova():
     
@@ -21,7 +23,7 @@ class TelaSeisNova():
     # configurações da janela principal
     def config_janela(self):
         self.janela_main.title("Automatizador de Relatório")
-        self.janela_main.iconbitmap(r"C:\PYGUI_TRAINING\Conceitos_Avançados\view\Grupo-3.ico")
+        self.janela_main.iconbitmap(os.path.join(os.getcwd(),"Conceitos_Avançados","view","Grupo-3.ico"))
         self.janela_main.configure(background='#FFF')
         self.janela_main.geometry("400x300")
         self.janela_main.resizable(False, False)
@@ -87,7 +89,7 @@ class TelaSeisNova():
                 # Exibe uma mensagem de aviso
                 messagebox.showwarning("Aviso", "Por favor, preencha os campos corretamente.")
             else:
-                messagebox.showinfo("Info", "Realizando a Busca")
+                messagebox.showinfo("Info", "CONFIRME PARA REALIZAR BUSCA!\n\nClique em 'OK' ")
                 self.janela_main.destroy()
                 return f"O Grupo é: {self.valor_et_1} e o Agente é: {self.valor_et_2}"
 

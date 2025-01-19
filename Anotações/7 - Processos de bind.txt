@@ -1,0 +1,103 @@
+1 - O que é o bind()?
+    
+    O método bind() do módulo Tkinter é usado para vincular eventos
+    (como cliques do mouse, pressionamento de teclas, etc.) a funções específicas
+    (também chamadas de callbacks). Ele permite associar uma ação a um evento ocorrido
+    em um widget específico da interface gráfica.
+
+2 - args do bind()
+
+    widget.bind(event, callback)
+
+    Parâmetros
+        event:
+        
+            String que define o tipo de evento que será tratado.
+            O evento pode ser um clique do mouse, uma tecla pressionada, entre outros.
+        
+        Exemplos de eventos comuns:
+
+            "<Button-1>": Clique do botão esquerdo do mouse.
+            "<Button-3>": Clique do botão direito do mouse.
+            "<KeyPress-A>": Pressionar a tecla "A".
+            "<Return>": Pressionar a tecla Enter.
+            "<Double-Button-1>": Clique duplo com o botão esquerdo.
+            "<Motion>": Movimento do mouse dentro do widget.
+            "<FocusIn>" e "<FocusOut>": Quando o widget ganha ou perde o foco.
+        
+        callback:
+            
+            Função que será chamada quando o evento ocorrer.
+            Deve aceitar um parâmetro (normalmente chamado de event) que contém
+            informações sobre o evento.
+
+3 - Como funciona o bind()?
+
+    Quando o evento especificado acontece no widget associado, a função callback
+    vinculada é executada. A função recebe como argumento um objeto do tipo Event,
+    que contém informações detalhadas sobre o evento, como:
+
+        widget: O widget onde o evento ocorreu.
+        x e y: Coordenadas do mouse.
+        keycode: Código da tecla pressionada.
+        char: Caractere gerado pelo pressionamento da tecla.
+        state: Indica modificadores (como Shift, Ctrl, etc.) usados no evento.
+
+    Exemplos prático:
+    
+    1. Capturando cliques do mouse
+
+        import tkinter as tk
+
+        def on_click(event):
+            print(f"Você clicou em {event.widget} nas coordenadas ({event.x}, {event.y})")
+
+        root = tk.Tk()
+        btn = tk.Button(root, text="Clique aqui")
+        btn.pack(pady=20)
+
+        btn.bind("<Button-1>", on_click)  # Clique com o botão esquerdo do mouse
+        root.mainloop()
+
+    2. Capturando teclas pressionadas
+
+        import tkinter as tk
+
+        def on_key(event):
+            print(f"Tecla pressionada: {event.char} (keycode: {event.keycode})")
+
+        root = tk.Tk()
+        entry = tk.Entry(root)
+        entry.pack(pady=20)
+
+        entry.bind("<KeyPress>", on_key)  # Captura qualquer tecla pressionada
+        root.mainloop()
+
+    3. Evento com movimento do mouse
+
+        import tkinter as tk
+
+        def on_motion(event):
+            print(f"Mouse movido para ({event.x}, {event.y})")
+
+        root = tk.Tk()
+        frame = tk.Frame(root, width=200, height=200, bg="lightblue")
+        frame.pack()
+
+        frame.bind("<Motion>", on_motion)  # Detecta movimentos do mouse
+        root.mainloop()
+
+4 - Eventos comuns
+
+        Evento                Descrição
+    
+    <Button-1>           Clique do botão esquerdo do mouse
+    <Button-2>           Clique do botão do meio do mouse
+    <Button-3>           Clique do botão direito do mouse
+    <Double-Button-1>    Clique duplo do botão esquerdo
+    <KeyPress>           Pressionamento de qualquer tecla
+    <KeyRelease>         Soltar uma tecla
+    <Enter>              Mouse entra no widget
+    <Leave>              Mouse sai do widget
+    <FocusIn>            Widget ganha foco
+    <FocusOut>           Widget perde foco

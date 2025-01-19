@@ -1,0 +1,8 @@
+1 - Aqui vamos Trabalhar com várias Janelas
+
+    # Estudar cada módulo se necessário
+
+    podemos usar os métodos: 
+        transient() ->  abrem multiplas janelas juntas
+        focus_force() -> força o foco da janela
+        grab_Set() -> forca e interação da outra janela temporariamente
